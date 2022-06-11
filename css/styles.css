@@ -8,6 +8,7 @@
 --hero-btn-bg-hover:#188CE8;
 --team-bg-color:#F5F4FA;
 --foot-text-color:rgba(255,255,255,0.6);
+--timing-function:cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p,h1,h2,h3,ul {
@@ -95,8 +96,11 @@ body {
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
-    letter-spacing: 0.02em;    
+    letter-spacing: 0.02em; 
+    
+    transition: color 250ms var(--timing-function);
 }
+
 
 .nav-portfolio-item,
 .nav-contakt-item {
@@ -105,6 +109,18 @@ body {
 
 .current {
     color:var(--logo-web-color);
+    position: relative;
+}
+
+.current::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--logo-web-color);
+    border-radius: 2px;
 }
 
 .nav-studio:hover,
@@ -127,7 +143,9 @@ body {
     color:var(--brand-text-color);
 
     padding-top: 32px;
-    padding-bottom: 32px;    
+    padding-bottom: 32px;
+    
+    transition: color 250ms var(--timing-function);
 }
 
 .mail-text,
@@ -140,6 +158,11 @@ body {
 .footer-mail:hover,
 .footer-tel:hover {
     color: var(--logo-web-color);
+}
+
+.icon-envelope,
+.icon-smartphone {
+    transition: fill 250ms var(--timing-function);
 }
 
 .header-mail:hover .icon-envelope {
@@ -225,6 +248,8 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border: none;
+
+    transition: background-color 250ms var(--timing-function);
 }  
 
 .hero-btn:hover,
@@ -406,10 +431,14 @@ body {
     height: 100%;
     background-color:var(--hero-text-color);
     border-radius: 50%;
+
+    transition: background-color 250ms var(--timing-function);
 }
 
 .cocial-icon-item {
     fill: #AFB1B8;
+
+    transition: fill 250ms var(--timing-function);
 }
 
 .cocial-icon-link:hover,
@@ -451,8 +480,8 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    /* padding: 16px 32px;  */
-    
+
+    transition: border 250ms var(--timing-function);
 }
 
 .client-logo-link:hover .client-logo-icon,
@@ -467,6 +496,8 @@ body {
 
 .client-logo-icon {
     fill: #AFB1B8;
+
+    transition: fill 250ms var(--timing-function);
 }
 
 .clients-title {
@@ -514,7 +545,9 @@ body {
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
-    color:var(--foot-text-color);    
+    color:var(--foot-text-color); 
+    
+    transition: color 250ms var(--timing-function);
 }
 
 .down-mail,
@@ -565,6 +598,8 @@ body {
     height: 100%;
     background-color: #ffffff10;
     border-radius: 50%;
+
+    transition: background-color 250ms var(--timing-function);
 }
 
 .footer-icon-item {
@@ -601,7 +636,11 @@ body {
     color:var(--accent-text-color);
     background-color:var(--team-bg-color);
     border: 0;
-    border-radius: 4px;    
+    border-radius: 4px; 
+        
+    transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .filter .item:not(:first-child) {
@@ -629,9 +668,40 @@ body {
     margin: 15px;
     flex-basis: calc(100%/3 - 30px);
 }
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-overlay {
+    display: flex;
+    position: absolute;
+    top: 101%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 250ms var(--timing-function);
+}
 
 .project-link {
     display: block;
+}
+
+.project-link:hover .project-overlay {
+    transform: translateY(-101%);
+}
+
+.overlay-text {
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    width: 322px;
+    /* height: 168px;     */
+    color: var(--hero-text-color);
 }
 
 .project-link:hover,
