@@ -795,6 +795,9 @@ body {
 }
 
 .modal-button-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 8px;
     right: 8px;
