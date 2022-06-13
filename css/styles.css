@@ -810,15 +810,9 @@ body {
     cursor: pointer;    
 }
 
-.modal-button-close::before {
+.modal-close-icon {
     display: block;
-    content: "";
-    width: 18px;
-    height: 18px;
-    background-repeat: no-repeat;
-    background-image: 
-    url(../images/icon/close-black-x.svg);
-
+    fill: var(--logo-studio-color);
 }
 
 
